@@ -14,8 +14,8 @@ require_once (".private/config.php");
    $gran = mysql_query("grant all on my_cms.* to rafiki5@localhost identified by ''");
    if(!$gran)
        die("nie utworzono urzytkownika");
-   $flash = mysql_query("flush privileges");
-    if(!$flash)
+   $flush = mysql_query("flush privileges");
+    if(!$flush)
        die("nie nadano przywilejow");
    $query = "CREATE TABLE pages (
        id int(11) not null auto_increment,
@@ -28,4 +28,19 @@ require_once (".private/config.php");
    $pagetable = mysql_query($query);
    if(!$pagetable)
        die("nie utwozono tabeli page");
+   $query = "CREATE TABLE users (
+       id int(11) not null auto_increment,
+       username varchar(50) not null,
+       email text,
+       password varchar(50) not null,
+       active bool not null default 0,
+       acceskey varchar(32) default null,
+       role text,
+       primary key(id)) ";
+   $usertable = mysql_query($query);
+   if(!$query)
+       die("nie utwozono tabeli users");
+   
+   
+   
    echo 'ok';
