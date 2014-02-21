@@ -1,5 +1,5 @@
 <?php
-require_once (".private/config.php");
+require_once ("../.private/config.php");
    if(!mysql_connect($DBVARIABLE['dbhost'], $DBVARIABLE['dbusername'], $DBVARIABLE['dbpassword']))
            die("nie polaczono");
    $del = mysql_query("DROP DATABASE my_cms");
@@ -28,6 +28,12 @@ require_once (".private/config.php");
    $pagetable = mysql_query($query);
    if(!$pagetable)
        die("nie utwozono tabeli page");
+   $query = "INSERT INTO pages(`title`, `name`, `body`)
+       VALUES ('Strona Glowna','','<h1>Witaj !!!!!</h1>')";
+   $insertpage = mysql_query($query);
+   if(!$insertpage)
+       die("nie dodano strony");
+   
    $query = "CREATE TABLE users (
        id int(11) not null auto_increment,
        username varchar(50) not null,
