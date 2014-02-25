@@ -20,10 +20,15 @@ class Database{
     public function execute($query , $array){
         $data = $this->db->prepare($query);
         $data->execute($array);
-        if($data->rowCount()!=1)
-            die('<br>nic nie znaleziono');
-        $response =  $data->fetch();
-        echo $response['body'];
+        if($data->rowCount()!=1){
+            return false;
+        }else{
+            $response =  $data->fetch();
+            return $response;
+        }
+            
+        
+        //echo $response['body'];
     }
      
 }

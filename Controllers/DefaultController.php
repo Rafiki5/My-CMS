@@ -1,16 +1,13 @@
 <?php
 require_once 'ri.class/Database.php';
+require_once 'Controller.php';
 
-   class DefaultController {
-       private $database;
-       public function __construct() {
-           $this->database = new Database();
+   class DefaultController extends Controller {
+
+       public function getPage(){
+          $resp =  $this->database->execute('SELECT body FROM pages WHERE name=?',array(""));
+          echo $resp['body'];
        }
-       public function getPage($name){
-           return $this->database->execute('SELECT body FROM pages WHERE name=:name',array('name' => $name));
-       }
-       public function login(){
-           $result = file_get_contents("./Views/Default/login.php");
-           echo $result;
-       }
+       
+       
    };

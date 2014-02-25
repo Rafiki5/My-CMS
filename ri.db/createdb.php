@@ -37,16 +37,27 @@ require_once ("../.private/config.php");
    $query = "CREATE TABLE users (
        id int(11) not null auto_increment,
        username varchar(50) not null,
-       email text,
+       email text not null,
        password varchar(50) not null,
        active bool not null default 0,
        acceskey varchar(32) default null,
        role text,
        primary key(id)) ";
    $usertable = mysql_query($query);
-   if(!$query)
+   if(!$usertable)
        die("nie utwozono tabeli users");
-   
-   
+   $pass = md5("admin");
+   $role = json_encode(array('_superadministrator'));
+   $query = "INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
+       VALUES ('admin','5226303@gmail.com','$pass', 1, '$role')";
+   $insertuser = mysql_query($query);
+   if(!$insertuser)
+       die("nie dodano administratora");
+   $pass = md5("11111");
+   $query = "INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
+       VALUES ('rafiki','5226303@gmail.com','$pass', 1, '')";
+   $insertuser = mysql_query($query);
+   if(!$insertuser)
+       die("nie dodano administratora");
    
    echo 'ok';

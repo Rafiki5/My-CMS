@@ -1,0 +1,16 @@
+    <form id="login" action="../ri.class/Login.php" method="POST">
+        <fieldset>
+            <legend>Panel logowania</legend>
+            <label> Nazwa urzytkownika : <br>
+                    <input name="username" type="text"/>
+            </label><br>
+            <label> Hasło :<br>
+                    <input name="password" type="password"/>
+            </label>   
+            <br>
+            <a href="reset">Zapomnialem hasła</a>
+            <br>
+            <input type="submit" name="login" value="Logowanie"/>
+        </fieldset>
+    </form>
+

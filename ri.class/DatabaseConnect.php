@@ -1,9 +1,12 @@
 <?php
-require_once(".private/config.php");
+require_once $_SERVER['DOCUMENT_ROOT']. '/My-CMS/.private/config.php';
+
 class DBConnect{
     private static $instance = null;
+    
     private function __construct() {
-	        try {
+        
+	        try {                
                     global $DBVARIABLE;
                     self::$instance = new PDO('mysql:host='.@$DBVARIABLE['dbhost']
                     .';dbname='.@$DBVARIABLE['dbname'],
