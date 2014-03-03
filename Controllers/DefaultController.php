@@ -5,7 +5,7 @@ require_once 'Controller.php';
    class DefaultController extends Controller {
 
        public function getPage(){
-          $resp =  $this->database->execute('SELECT body FROM pages WHERE name=?',array(""));
+          $resp =  $this->database->fetchOne('SELECT body FROM pages WHERE name=?',array(""));
           echo $resp['body'];
        }
        

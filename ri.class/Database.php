@@ -17,7 +17,7 @@ class Database{
         $this->array = $array;
     }
     
-    public function execute($query , $array){
+    public function fetchOne($query , $array){
         $data = $this->db->prepare($query);
         $data->execute($array);
         if($data->rowCount()!=1){
@@ -26,9 +26,19 @@ class Database{
             $response =  $data->fetch();
             return $response;
         }
-            
-        
-        //echo $response['body'];
+    }
+    public function fetchAll($query, $array=null){
+        $data = $this->db->prepare($query);
+        $data->execute($array);
+        if($data->rowCount()==0){
+            return false;
+        }else{
+            $response=array();
+            while ($r = $data->fetch(PDO::FETCH_ASSOC)){
+                $response[]=$r;
+            }
+            return $response;
+        }
     }
      
 }

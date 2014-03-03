@@ -7,7 +7,7 @@ if(isset($_POST['login'])){
     $user = isset($_POST['username'])?$_POST['username']:'';
     $pass = isset($_POST['password'])?$_POST['password']:'';
     $pass = md5($pass);
-    $resp = $database->execute("select * from users where username=? and password=? and active", array($user, $pass));
+    $resp = $database->fetchOne("select * from users where username=? and password=? and active", array($user, $pass));
     if(isset($resp)&&$resp!=false){
         $_SESSION['userdata']=$resp;
         
@@ -46,7 +46,7 @@ if(isset($_POST['reset'])){
         $codeidtmp.= (string)rand(0, 9);
     }
     $codeid = $codeidtmp;
-    $database->execute("update users set password=?, acceskey=?,active=0 where email=? ", array($passmd5,$codeid, $_POST['email'])); 
+    $database->fetchOne("update users set acceskey=? where email=? ", array($codeid, $_POST['email'])); 
     sendmail($_POST['email'], $pass, $codeid);
     header('Location: /My-CMS/admin/login');
 }
@@ -56,7 +56,8 @@ if(isset($_GET['action']) && $_GET['action']=="logout"){
 }
 if(isset($_GET['action']) && $_GET['action']=='verification'){
     echo 'tu';
-    $database->execute("update users set active=1 where acceskey=?", array($_GET['codeid'])); 
+    $pass=  md5($_GET['change']);
+    $database->fetchOne("update users set password=?  where acceskey=?", array($pass, $_GET['codeid'])); 
 }
 
 ?>

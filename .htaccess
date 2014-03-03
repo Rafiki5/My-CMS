@@ -1,3 +1,4 @@
 RewriteEngine on
+RewriteRule ^([^./]{3}[^.]*)/([^.]*)/([^.]*)$ index.php?controller=$1&action=$2&id=$3 [QSA,L]
 RewriteRule ^([^./]{3}[^.]*)/([^.]*)$ index.php?controller=$1&action=$2 [QSA,L]
 RewriteRule ^([^./]{3}[^.]*)$ index.php?controller=$1 [QSA,L]

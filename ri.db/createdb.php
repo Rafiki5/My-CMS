@@ -47,9 +47,8 @@ require_once ("../.private/config.php");
    if(!$usertable)
        die("nie utwozono tabeli users");
    $pass = md5("admin");
-   $role = json_encode(array('_superadministrator'));
    $query = "INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
-       VALUES ('admin','5226303@gmail.com','$pass', 1, '$role')";
+       VALUES ('admin','5226303@gmail.com','$pass', 1, '_superadministrator')";
    $insertuser = mysql_query($query);
    if(!$insertuser)
        die("nie dodano administratora");

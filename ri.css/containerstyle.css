@@ -1,0 +1,55 @@
+.container{
+    margin: 0 auto;
+    width: 800px;
+    height: 100%;
+    background: white;
+    
+}
+header{
+    position: relative;
+    background: lightblue;
+    height: 100px
+}
+footer{
+    height: 50px;
+    background: lightblue;
+}
+footer p{
+    text-align: center;
+}
+#userslist{
+    border: 1px solid black;
+    width: content-box;
+    height: content-box;
+    margin: 20px auto;
+}
+#userslist td, th{
+    border: 1px solid black;
+    padding: 10px;
+}
+#right-menu li{
+    display: inline;
+    margin-left: 10px;
+}
+#right-menu li a:link{
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    text-indent: inherit;
+    
+}
+#right-menu li a:hover{
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+    text-indent: inherit;
+    border: 1px double black;
+    border-radius: 25px;
+}
+#right-menu{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
