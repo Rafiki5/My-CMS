@@ -13,6 +13,7 @@
             <?php
                 require_once 'Controllers/DefaultController.php';
                 require_once 'Controllers/AdminController.php';
+                require_once 'Controllers/PagesController.php';
                 require_once 'ri.class/isLogged.php';
                 session_start();
                 isLogin();
@@ -20,7 +21,13 @@
             ?>
         
         </header>
-            <article>
+              <?php
+              if(isset($_GET['negmsg']))
+                  echo "<p id='negmsg'>".$_GET['negmsg']."</p>" ;
+              if(isset($_GET['posmsg']))
+                  echo "<p id='posmsg'>".$_GET['posmsg']."</p>" ;
+              ?>
+        <article>
         <?php
 
     $controller = isset($_REQUEST['controller'])?$_REQUEST['controller']:'';
@@ -32,6 +39,7 @@
         $dc = new DefaultController();
         echo $dc->getPage();
     }else{
+        
         $controller = $controller."Controller";
         $c = new $controller();
         if(!$id)

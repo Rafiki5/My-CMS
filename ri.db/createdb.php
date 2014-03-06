@@ -47,16 +47,25 @@ require_once ("../.private/config.php");
    if(!$usertable)
        die("nie utwozono tabeli users");
    $pass = md5("admin");
+   $groups = json_encode(array('_superadministrator', '_administrator'));
    $query = "INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
-       VALUES ('admin','5226303@gmail.com','$pass', 1, '_superadministrator')";
+       VALUES ('admin','5226303@gmail.com','$pass', 1, '$groups')";
    $insertuser = mysql_query($query);
    if(!$insertuser)
        die("nie dodano administratora");
    $pass = md5("11111");
    $query = "INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
-       VALUES ('rafiki','5226303@gmail.com','$pass', 1, '')";
+       VALUES ('rafiki','5226303@gmail.com','$pass', 1, '[]')";
    $insertuser = mysql_query($query);
    if(!$insertuser)
        die("nie dodano administratora");
-   
+   $query = "create table groups (
+       id int(11) not null auto_increment,
+       name text,
+       primary key(id))";
+   $groupstable = mysql_query($query);
+   if(!$groupstable)
+       die("nie utworzono tabeli groups");
+   mysql_query("insert into groups (name) value ('_superadministrator')");
+   mysql_query("insert into groups (name) value ('_administrator')");
    echo 'ok';

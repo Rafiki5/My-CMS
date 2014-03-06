@@ -16,12 +16,12 @@ class AdminController extends Controller{
     }
     public function user($id){
         $this->isAdmin();
-        $this->idId();
+        $this->isId();
         $this->users->userId($id);
     }
     public function changepass($id){
         $this->isAdmin();
-        $this->idId();
+        $this->isId();
         $this->users->changePass($id);
     }
 }

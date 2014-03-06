@@ -1,6 +1,7 @@
 <?php
 require_once 'Database.php';
 require_once 'sendmail.php';
+require_once 'msgCode.php';
 session_start();
 $database = new Database();
 if(isset($_POST['login'])){
@@ -12,24 +13,18 @@ if(isset($_POST['login'])){
         $_SESSION['userdata']=$resp;
         
         $groups = json_decode($resp['role']);
-        if($groups!=""){
+        if(!empty($groups)){
+            
             $_SESSION['userdata']['role']=array();
             foreach ($groups as $g)
                 $_SESSION['userdata']['role'][$g]=true;
         }      
         if(isset($_SESSION['userdata'])){
-            if(isset($_SESSION['userdata']['role']['_superadministrator']) ||
-               isset($_SESSION['userdata']['role']['_administrator']))
-                
-           header ("Location: /My-CMS/");
-                //echo 'Zalogowales sie jako administrator';
-            else
                 header ("Location: /My-CMS/");
-                //echo 'Zalogowales sie jako '.$resp['username'];
         }          
     }
      else {
-        header ("Location: /My-CMS/admin/login");
+        header ("Location: /My-CMS/admin/login?negmsg=".  htmlspecialchars($msgcode['notlogin']));
     }
 }
 if(isset($_POST['reset'])){
@@ -48,16 +43,16 @@ if(isset($_POST['reset'])){
     $codeid = $codeidtmp;
     $database->fetchOne("update users set acceskey=? where email=? ", array($codeid, $_POST['email'])); 
     sendmail($_POST['email'], $pass, $codeid);
-    header('Location: /My-CMS/admin/login');
+    header('Location: /My-CMS/admin/login?posmsg='.htmlspecialchars($msgcodepositive['sendemailpass']));
 }
 if(isset($_GET['action']) && $_GET['action']=="logout"){
     unset($_SESSION['userdata']);
     header("Location: /My-CMS/");   
 }
 if(isset($_GET['action']) && $_GET['action']=='verification'){
-    echo 'tu';
     $pass=  md5($_GET['change']);
     $database->fetchOne("update users set password=?  where acceskey=?", array($pass, $_GET['codeid'])); 
+    header("Location: /My-CMS/admin/login?posmsg=".htmlspecialchars($msgcodepositive['resetpass']));
 }
 
 ?>

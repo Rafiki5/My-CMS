@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-03-01 14:06:36
+<?php /* Smarty version Smarty-3.1.16, created on 2014-03-04 22:06:34
          compiled from ".\Views\Admin\changepass.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:285965311db5c225de3-18955665%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:111155316405a25e6f8-89902945%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '285965311db5c225de3-18955665',
+  'nocache_hash' => '111155316405a25e6f8-89902945',
   'function' => 
   array (
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.16',
-  'unifunc' => 'content_5311db5c293d21_14820463',
+  'unifunc' => 'content_5316405a2c96a7_17443588',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5311db5c293d21_14820463')) {function content_5311db5c293d21_14820463($_smarty_tpl) {?><form id="login" method="POST" action="/My-CMS/ri.class/EditUser.php">
+<?php if ($_valid && !is_callable('content_5316405a2c96a7_17443588')) {function content_5316405a2c96a7_17443588($_smarty_tpl) {?><form id="login" method="POST" action="/My-CMS/ri.class/EditUser.php">
     <fieldset>
         <legend>Zmiana hasła</legend>
         <label>Stare hasło   <br>

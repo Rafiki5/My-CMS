@@ -8,12 +8,11 @@ class Controller{
         $this->users = new Users();
     }
     public function isAdmin(){
-        if(!isset($_SESSION['userdata']['role']) || 
-                $_SESSION['userdata']['role']!='_superadministrator'){
+        if(!isset($_SESSION['userdata']['role']['_superadministrator'])){
             header("Location:".$_SERVER['DOCUMENT_ROOT']);
         }
     }
-    public function idId(){
+    public function isId(){
         $this->isAdmin();
         if(!isset($_REQUEST['id'])){
             header("Location: /My-CMS/admin/userslist");

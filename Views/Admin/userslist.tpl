@@ -11,7 +11,14 @@
             <tr>
         <td>{$user[i].username}</td>
         <td>{$user[i].email}</td>
-        <td>{$user[i].role}</td>
+        {if !$user[i].role}
+            <td></td>
+        {else}<td>
+            {foreach from=$user[i].role item=role}
+                {$role}<br>
+            {/foreach}
+            </td>
+        {/if}
         <td><a href="/My-CMS/admin/user/{$user[i].id}">Edytuj</a></td>
         </tr>
             {/section}

@@ -1,29 +1,30 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-02-28 17:19:44
+<?php /* Smarty version Smarty-3.1.16, created on 2014-03-04 22:36:51
          compiled from ".\Views\Admin\userslist.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:62865310b1266b3320-14401615%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1386353163433c5cc05-68734388%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f6aba383ba45ffa81a8b8b74e5e331ba7ebdc553' => 
     array (
       0 => '.\\Views\\Admin\\userslist.tpl',
-      1 => 1393604243,
+      1 => 1393968976,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '62865310b1266b3320-14401615',
+  'nocache_hash' => '1386353163433c5cc05-68734388',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.16',
-  'unifunc' => 'content_5310b1268dccc7_63011555',
+  'unifunc' => 'content_53163433cf36a8_00589160',
   'variables' => 
   array (
     'user' => 0,
+    'role' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5310b1268dccc7_63011555')) {function content_5310b1268dccc7_63011555($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_53163433cf36a8_00589160')) {function content_53163433cf36a8_00589160($_smarty_tpl) {?>
 <table id="userslist">
     <thead>
     <th>Użytkownik</th>
@@ -61,8 +62,19 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 </td>
         <td><?php echo $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['email'];?>
 </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['role'];?>
-</td>
+        <?php if (!$_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['role']) {?>
+            <td></td>
+        <?php } else { ?><td>
+            <?php  $_smarty_tpl->tpl_vars['role'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['role']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['role']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['role']->key => $_smarty_tpl->tpl_vars['role']->value) {
+$_smarty_tpl->tpl_vars['role']->_loop = true;
+?>
+                <?php echo $_smarty_tpl->tpl_vars['role']->value;?>
+<br>
+            <?php } ?>
+            </td>
+        <?php }?>
         <td><a href="/My-CMS/admin/user/<?php echo $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['id'];?>
 ">Edytuj</a></td>
         </tr>
