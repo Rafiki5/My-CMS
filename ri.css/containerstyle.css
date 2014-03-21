@@ -1,18 +1,26 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
 .container{
     margin: 0 auto;
-    width: 800px;
+    width: 1000px;
     height: 100%;
     background: white;
-    
+    word-wrap: break-word;   
 }
 header{
     position: relative;
     background: lightblue;
-    height: 100px
+    height: 100px;
 }
 footer{
     height: 50px;
     background: lightblue;
+}
+article{
+       padding: 10px;
+       overflow-y: auto;
 }
 footer p{
     text-align: center;
@@ -33,8 +41,7 @@ footer p{
     color: black;
 }
 #right-menu li a:link{
-    padding: 5px;
-    
+    padding: 5px;   
     text-decoration: none;
     font-size: 15px;
     text-indent: inherit;
@@ -54,13 +61,56 @@ footer p{
     top: 15px;
 }
 #negmsg{
+    margin: 0;
     padding: 10px;
     background: red;
     color: wheat;
 }
 #posmsg{
+    margin: 0;
     padding: 10px;
     background: green;
     color: wheat;
 }
-
+#page-list{
+    border-right: 2px solid black;
+    padding: 10px;
+    margin-right: 20px;
+    min-width: 10%;
+    display: table-cell;
+    white-space: nowrap;
+    font-weight: bolder;
+    font-size: 20px;
+    float: left;
+    list-style: none;
+    
+}
+#page-list li{
+    white-space: nowrap;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid gray;
+    
+}
+#page-list a:link{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 100%;
+    font-weight: normal;
+    padding: 5px;
+}
+#page-list a:hover{
+    
+    background: orange;
+    border-radius: 25px; 
+}
+section#content{
+    width: 75%;
+    float: left;
+}
+aside#mine-menu{
+    width: 24%;
+    float: right;
+}

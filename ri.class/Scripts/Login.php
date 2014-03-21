@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once '../Database.php';
 require_once 'sendmail.php';
 require_once 'msgCode.php';
 session_start();
@@ -10,11 +10,9 @@ if(isset($_POST['login'])){
     $pass = md5($pass);
     $resp = $database->fetchOne("select * from users where username=? and password=? and active", array($user, $pass));
     if(isset($resp)&&$resp!=false){
-        $_SESSION['userdata']=$resp;
-        
+        $_SESSION['userdata']=$resp;        
         $groups = json_decode($resp['role']);
-        if(!empty($groups)){
-            
+        if(!empty($groups)){          
             $_SESSION['userdata']['role']=array();
             foreach ($groups as $g)
                 $_SESSION['userdata']['role'][$g]=true;
@@ -24,7 +22,8 @@ if(isset($_POST['login'])){
         }          
     }
      else {
-        header ("Location: /My-CMS/admin/login?negmsg=".  htmlspecialchars($msgcode['notlogin']));
+        $_SESSION['negmsg']= htmlspecialchars($msgcode['notlogin']);
+        header ("Location: /My-CMS/admin/login");
     }
 }
 if(isset($_POST['reset'])){
@@ -43,7 +42,8 @@ if(isset($_POST['reset'])){
     $codeid = $codeidtmp;
     $database->fetchOne("update users set acceskey=? where email=? ", array($codeid, $_POST['email'])); 
     sendmail($_POST['email'], $pass, $codeid);
-    header('Location: /My-CMS/admin/login?posmsg='.htmlspecialchars($msgcodepositive['sendemailpass']));
+    $_SESSION['posmsg']=htmlspecialchars($msgcodepositive['sendemailpass']);
+    header('Location: /My-CMS/admin/login');
 }
 if(isset($_GET['action']) && $_GET['action']=="logout"){
     unset($_SESSION['userdata']);
@@ -52,7 +52,8 @@ if(isset($_GET['action']) && $_GET['action']=="logout"){
 if(isset($_GET['action']) && $_GET['action']=='verification'){
     $pass=  md5($_GET['change']);
     $database->fetchOne("update users set password=?  where acceskey=?", array($pass, $_GET['codeid'])); 
-    header("Location: /My-CMS/admin/login?posmsg=".htmlspecialchars($msgcodepositive['resetpass']));
+    $_SESSION['posmsg']=htmlspecialchars($msgcodepositive['resetpass']);
+    header("Location: /My-CMS/admin/login");
 }
 
 ?>

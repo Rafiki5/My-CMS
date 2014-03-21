@@ -29,14 +29,20 @@ class Users {
             $groupstmp[]=$g['name'];
         $groups= $groupstmp;
         $user = $this->database->fetchOne("select * from users where id=?", array($id));
-        $user['role']=  json_decode($user['role']);
-        if(!$user)
+        if(!$user){
             header ("Location: ".$_SERVER['DOCUMENT_ROOT']);
+        }
+            
+        $user['role']=  json_decode($user['role']);     
         $this->smarty->assign("user", $user);
         $this->smarty->assign("group", $groups);
         $this->smarty->display("user.tpl");
     }
     public function changePass($id){
+        $user = $this->database->fetchOne("select * from users where id=?", array($id));
+        if(!$user){
+            header ("Location: ".$_SERVER['DOCUMENT_ROOT']);
+        }
         $this->smarty->assign("id", $id);
         $this->smarty->display("changepass.tpl");
     }

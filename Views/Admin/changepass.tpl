@@ -1,4 +1,4 @@
-<form id="login" method="POST" action="/My-CMS/ri.class/EditUser.php">
+<form id="login" method="POST" action="/My-CMS/ri.class/Scripts/EditUser.php">
     <fieldset>
         <legend>Zmiana hasła</legend>
         <label>Stare hasło   <br>

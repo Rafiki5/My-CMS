@@ -1,4 +1,4 @@
-<form id="login" action="/My-CMS/ri.class/EditUser.php" method="POST">
+<form id="login" action="/My-CMS/ri.class/Scripts/EditUser.php" method="POST">
     <fieldset>
         <legend>Edytuj Urzytkownika</legend>
         <label>Nazwa urzytkownika <br>

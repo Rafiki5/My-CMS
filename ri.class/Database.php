@@ -20,10 +20,10 @@ class Database{
     public function fetchOne($query , $array){
         $data = $this->db->prepare($query);
         $data->execute($array);
-        if($data->rowCount()!=1){
+        if($data->rowCount()==0){
             return false;
         }else{
-            $response =  $data->fetch();
+            $response =  $data->fetch(PDO::FETCH_ASSOC);
             return $response;
         }
     }
@@ -39,6 +39,12 @@ class Database{
             }
             return $response;
         }
+    }
+    public function lastInsertId(){
+        return $this->db->lastInsertId();
+    }
+    public function error(){
+        print_r($this->db->errorInfo());
     }
      
 }

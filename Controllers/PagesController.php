@@ -1,9 +1,12 @@
 <?php
+require_once 'Controller.php';
+require_once '/ri.class/Pages.php';
 
-
-class PagesController {
-    public function pageslist(){
-        
+class PagesController extends Controller{
+    
+    public function pageslist($id=null){
+        $this->isAdmin();
+        $this->pages->pageslist($id);
     }
 }
 

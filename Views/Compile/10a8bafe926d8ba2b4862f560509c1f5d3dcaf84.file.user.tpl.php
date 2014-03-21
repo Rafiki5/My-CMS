@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-03-04 21:18:12
+<?php /* Smarty version Smarty-3.1.16, created on 2014-03-10 12:32:44
          compiled from ".\Views\Admin\user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:840453163439666175-85930068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '10a8bafe926d8ba2b4862f560509c1f5d3dcaf84' => 
     array (
       0 => '.\\Views\\Admin\\user.tpl',
-      1 => 1393964289,
+      1 => 1394450692,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53163439707e79_20080263')) {function content_53163439707e79_20080263($_smarty_tpl) {?><form id="login" action="/My-CMS/ri.class/EditUser.php" method="POST">
+<?php if ($_valid && !is_callable('content_53163439707e79_20080263')) {function content_53163439707e79_20080263($_smarty_tpl) {?><form id="login" action="/My-CMS/ri.class/Scripts/EditUser.php" method="POST">
     <fieldset>
         <legend>Edytuj Urzytkownika</legend>
         <label>Nazwa urzytkownika <br>
