@@ -17,7 +17,9 @@
                 require_once 'Controllers/DefaultController.php';
                 require_once 'Controllers/AdminController.php';
                 require_once 'Controllers/PagesController.php';
+                require_once 'Controllers/GroupsController.php';
                 require_once 'ri.class/Scripts/isLogged.php';
+                require 'Benchmark/Timer.php';
                 session_start();
                 isLogin();
             ?>
@@ -36,7 +38,8 @@
               ?>
         <article>
         <?php
-
+        $b = new Benchmark_Timer();
+        $b->start();
     $controller = isset($_REQUEST['controller'])?$_REQUEST['controller']:'';
     $controller = ucfirst(strtolower($controller));
     $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
@@ -58,6 +61,9 @@
                 $c->$action($id);
         }   
     }
+    
+    $b->stop(); 
+    //$b->display();
     ?>
                 </article>
             <footer>

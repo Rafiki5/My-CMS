@@ -5,6 +5,7 @@ function isLogin(){
         $menu="
         <ul id='right-menu'>
         <li><a href='/My-CMS/'>Strona Główna</a></li>
+        <li><a href='/My-CMS/groups/groupslist'>Role</a></li>
         <li><a href='/My-CMS/pages/pageslist'>Strony</a></li>
         <li><a href='/My-CMS/admin/userslist'>Urzytkownicy</a></li>
         <li><a href='/My-CMS/ri.class/Scripts/Login.php?action=logout'>Wyloguj</a></li>

@@ -26,35 +26,38 @@ class Pages {
     public function error(){
         $this->smarty->setTemplateDir("./Views/Default/");
         $this->smarty->display("404.tpl");
-        exit;
     }
     public function getPageByName($name){
         $resp= $this->database->fetchOne("select * from pages where name=? and active", array($name));
         $menu= $this->database->fetchAll("SELECT pages.name, pages.active AS pactive,
                 menu.active AS mactive, menu.path
                 FROM pages
-                LEFT JOIN menu ON pages.id = menu.pages_id");
+                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active");
         if(!$resp){
             $this->error();
+        }else{
+            $this->smarty->setTemplateDir("./Views/Pages/");
+            $this->smarty->assign("page", $resp);
+            $this->smarty->assign("menu", $menu);
+            $this->smarty->display("page.tpl");
         }
-        $this->smarty->setTemplateDir("./Views/Pages/");
-        $this->smarty->assign("page", $resp);
-        $this->smarty->assign("menu", $menu);
-        $this->smarty->display("page.tpl");
+        
     }
     public function getPageById($id){
         $resp= $this->database->fetchOne("select * from pages where id=? and active", array($id));
         $menu= $this->database->fetchAll("SELECT pages.name, pages.active AS pactive,
                 menu.active AS mactive, menu.path
                 FROM pages
-                LEFT JOIN menu ON pages.id = menu.pages_id");
+                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active");
         if(!$resp){
             $this->error();
+        }else{
+            $this->smarty->setTemplateDir("./Views/Pages/");
+            $this->smarty->assign("page", $resp);
+            $this->smarty->assign("menu", $menu);
+            $this->smarty->display("page.tpl");
         }
-        $this->smarty->setTemplateDir("./Views/Pages/");
-        $this->smarty->assign("page", $resp);
-        $this->smarty->assign("menu", $menu);
-        $this->smarty->display("page.tpl");
+        
     }
 }
 
