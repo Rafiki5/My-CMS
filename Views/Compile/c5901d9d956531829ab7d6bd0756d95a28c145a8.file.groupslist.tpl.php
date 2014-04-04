@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-01 18:08:39
+<?php /* Smarty version Smarty-3.1.16, created on 2014-04-04 20:53:09
          compiled from ".\Views\Groups\groupslist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21470533ac372601527-99529969%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5901d9d956531829ab7d6bd0756d95a28c145a8' => 
     array (
       0 => '.\\Views\\Groups\\groupslist.tpl',
-      1 => 1396368516,
+      1 => 1396637343,
       2 => 'file',
     ),
   ),
