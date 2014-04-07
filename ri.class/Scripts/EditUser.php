@@ -53,8 +53,9 @@ $id = isset($_POST['id'])?$_POST['id']:'';
         $email = trim($_POST['email']);
         $groups=array();
         if(isset($_POST['role'])){
-            foreach ($_POST['role'] as $r)
+            foreach ($_POST['role'] as $r){
                 $groups[] = $r;
+            }             
         }
         $groups = json_encode($groups);
         if($username=='' || $email==''){

@@ -13,9 +13,27 @@ class Users {
     public function usersList(){
         
         $users = $this->database->fetchAll("select id, username, email, role from users");   
+        $groups = $this->database->fetchAll("select name from groups");
+        $grouptmp=array();
+        foreach ($groups as $g){
+            $grouptmp[]=$g['name'];
+        }
+        $groups=$grouptmp;
         $userstmp=array();
         foreach ($users as  $k=>$u){
             $u['role']=  json_decode ($u['role']);
+            $rtmp=array();
+            foreach ($u['role'] as $r){
+                
+                if(in_array($r, $groups)){
+                    if(!in_array($r, $rtmp)){
+                        array_push($rtmp, $r);
+                    }
+                        
+                }
+                        
+            }
+            $u['role']=$rtmp;
             $userstmp[]=$u;
         }
         $users=$userstmp;

@@ -40,6 +40,18 @@ if(isset($_POST['reset'])){
         $codeidtmp.= (string)rand(0, 9);
     }
     $codeid = $codeidtmp;
+    $email = isset($_POST['email'])?$_POST['email']:'';
+    $email = trim($email);
+    if($email==''){
+        $_SESSION['negmsg']=htmlspecialchars($msgcode['emptyfield']);
+        header("Location: /My-CMS/admin/reset".$id); 
+        exit;  
+    }
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $_SESSION['negmsg']=htmlspecialchars($msgcode['wrongemail']);
+            header("Location: /My-CMS/admin/reset".$id);           
+            exit;
+        }
     $database->fetchOne("update users set acceskey=? where email=? ", array($codeid, $_POST['email'])); 
     sendmail($_POST['email'], $pass, $codeid);
     $_SESSION['posmsg']=htmlspecialchars($msgcodepositive['sendemailpass']);

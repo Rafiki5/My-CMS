@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-04 20:53:09
+<?php /* Smarty version Smarty-3.1.16, created on 2014-04-07 17:36:33
          compiled from ".\Views\Groups\groupslist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21470533ac372601527-99529969%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5901d9d956531829ab7d6bd0756d95a28c145a8' => 
     array (
       0 => '.\\Views\\Groups\\groupslist.tpl',
-      1 => 1396637343,
+      1 => 1396884989,
       2 => 'file',
     ),
   ),
@@ -45,10 +45,15 @@ $_smarty_tpl->tpl_vars['group']->_loop = true;
 </td>
                 <td><?php echo $_smarty_tpl->tpl_vars['group']->value['name'];?>
 </td>
-                <?php if ($_smarty_tpl->tpl_vars['group']->value['id']!=1&&$_smarty_tpl->tpl_vars['group']->value['id']!=2) {?>
-                <td><a href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id=<?php echo $_smarty_tpl->tpl_vars['group']->value['id'];?>
-">Usuń</a></td>
+                <td>
+                <?php if ($_smarty_tpl->tpl_vars['group']->value['id']!=1) {?>
+                    <a href="/My-CMS/groups/roleedit">Edytuj </a>
                 <?php }?>
+                <?php if ($_smarty_tpl->tpl_vars['group']->value['id']!=1&&$_smarty_tpl->tpl_vars['group']->value['id']!=2) {?>
+                    <a onclick="confirm('Czy na pewno chcesz usunąć tą grupę?')" href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id=<?php echo $_smarty_tpl->tpl_vars['group']->value['id'];?>
+">Usuń</a>           
+                <?php }?>
+                </td>
             </tr>
         <?php } ?>
         <tr>

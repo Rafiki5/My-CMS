@@ -40,6 +40,7 @@ class Database{
             return $response;
         }
     }
+
     public function lastInsertId(){
         return $this->db->lastInsertId();
     }

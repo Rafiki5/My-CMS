@@ -11,9 +11,14 @@
             <tr>
                 <td>{$smarty.foreach.groups.iteration}</td>
                 <td>{$group.name}</td>
-                {if $group.id neq 1 AND $group.id neq 2}
-                <td><a href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id={$group.id}">Usuń</a></td>
+                <td>
+                {if $group.id neq 1 }
+                    <a href="/My-CMS/groups/roleedit">Edytuj </a>
                 {/if}
+                {if $group.id neq 1 AND $group.id neq 2}
+                    <a onclick="confirm('Czy na pewno chcesz usunąć tą grupę?')" href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id={$group.id}">Usuń</a>           
+                {/if}
+                </td>
             </tr>
         {/foreach}
         <tr>

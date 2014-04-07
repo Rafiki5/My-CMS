@@ -9,6 +9,7 @@
         <script type="text/javascript" src="/My-CMS/ri.js/jquery-1.8.0.js"></script>
         <script type="text/javascript" src="/My-CMS/ri.js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript" src="/My-CMS/ri.js/tinymceinit.js"></script>
+        <script type="text/javascript" src="/My-CMS/ri.js/ajaxchat.js"></script>
     </head>
     <body>
         <div class="container">

@@ -10,9 +10,10 @@
         <label>Role <br>
             {if !$group}
                 Brak<br>
-            {else}
+            {else} 
             {section name=i loop=$group}
-                <input {if in_array($group[i], $user.role)}checked=""{/if}  type="checkbox" name="role[]" value="{$group[i]}"/>{$group[i]}<br>
+                {if $user.id eq 1 and $group[i] eq '_superadministrator'}<input type="hidden" name="role[]" value="_superadministrator"/>{/if} 
+                <input {if in_array($group[i], $user.role)}checked=""{/if}{if $user.id eq 1 and $group[i] eq '_superadministrator'}disabled=""{/if} type="checkbox" name="role[]" value="{$group[i]}"/>{$group[i]}<br>
             {/section}
             {/if}
         </label>
