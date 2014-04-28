@@ -65,12 +65,15 @@ require_once ("../.private/config.php");
    $query = "create table groups (
        id int(11) not null auto_increment,
        name text,
+       action text,
        primary key(id))";
    $groupstable = mysql_query($query);
    if(!$groupstable)
        die("nie utworzono tabeli groups");
-   mysql_query("insert into groups (name) value ('_superadministrator')");
-   mysql_query("insert into groups (name) value ('_administrator')");
+   $action= json_encode(array("useraction","pageaction"));
+   mysql_query("insert into groups (name, action) value ('_superadministrator', '$action')");
+   $action= json_encode(array("pageaction"));
+   mysql_query("insert into groups (name, action) value ('_administrator', '$action')");
  //---------------------------------------------
    $query = "create table menu (
        id int(11) not null auto_increment,

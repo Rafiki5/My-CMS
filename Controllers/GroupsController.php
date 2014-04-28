@@ -6,6 +6,10 @@ class GroupsController extends Controller{
         $this->isAdmin();
         $this->groups->groupslist();
     }
+    public function roleedit($id){
+        $this->isId();
+        $this->groups->roleedit($id);
+    }
 }
 
 ?>

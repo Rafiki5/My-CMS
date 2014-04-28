@@ -22,7 +22,7 @@ class Controller{
     public function isId(){
         $this->isAdmin();
         if(!isset($_REQUEST['id'])){
-            header("Location: /My-CMS/admin/userslist");
+            header("Location: /My-CMS");
         }
     }
 };

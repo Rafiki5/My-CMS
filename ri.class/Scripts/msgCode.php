@@ -12,7 +12,8 @@ $msgcode = array(
     'cannotdeletepage'=>'Nie możesz usunąć strony startowej',
     'fieldisempty'=>'Pola nie mogą być puste',
     'notnumeric'=>'Tytuł i/lub nazwa strony nie mogą być liczbami',
-    'cannotdeletegroup'=>'Nie można usunąć grupy'
+    'cannotdeletegroup'=>'Nie można usunąć grupy',
+    'pageexist'=>'Strona o podanej nazwie już istnieje'
     
 );
 $msgcodepositive=array(
@@ -23,6 +24,7 @@ $msgcodepositive=array(
     'pagedeleted'=>'Strona została usunięta',
     'pagechanged'=>'Strona została zaktualizowana',
     'pagewasadd'=>'Strona została dodana',
-    'groupdeleted'=>'Grupa usunięta'
+    'groupdeleted'=>'Grupa usunięta',
+    'groupwaschange'=>'Grupa została zaktualizowana'
 );
 ?>

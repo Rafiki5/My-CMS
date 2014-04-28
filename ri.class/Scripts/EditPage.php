@@ -7,19 +7,28 @@ if(isset($_POST['editpage'])){
     $title = isset($_POST['title'])?$_POST['title']:'';
     $name = isset($_POST['name'])?$_POST['name']:'';
     $body = isset($_POST['body'])?$_POST['body']:'';
+    $title=  trim($title);
+    $name=  trim($name);
+    $body=  trim($body);
     if(is_numeric($name) || is_numeric($title)){
         $_SESSION['negmsg']=$msgcode['notnumeric'];
         header("Location: /My-CMS/pages/pageslist");  
         exit;
+    }
+    $nameexist = $database->fetchOne("select name from pages where name=?", array($name));
+    if($nameexist){
+        $pagename = $database->fetchOne("select name from pages where id=?", array($_POST['id']));   
+        if($nameexist['name']!=$pagename['name']){
+            $_SESSION['negmsg']=$msgcode['pageexist'];
+            header("Location: /My-CMS/pages/pageslist");  
+            exit;
+        }      
     }
     if($_POST['id']!=1)
         $active = isset($_POST['activepage'])?1:0;
     else
         $active=1;
     $activemenu = isset($_POST['activemenu'])?1:0;
-    $title=  trim($title);
-    $name=  trim($name);
-    $body=  trim($body);
     if($title=='' || $name=='' || $body==''){
         $_SESSION['negmsg']=$msgcode['fieldisempty'];
         header("Location: /My-CMS/pages/pageslist");  
@@ -48,6 +57,15 @@ if(isset($_POST['addpage'])){
         $_SESSION['negmsg']=$msgcode['notnumeric'];
         header("Location: /My-CMS/pages/pageslist");  
         exit;
+    }
+    $nameexist= $database->fetchOne("select name from pages where name=?", array($name));
+    if(!empty($nameexist)){
+        $i=2;
+        while ($database->fetchOne("select name from pages where name=?", array($name.$i)))
+                $i++;
+        
+        $name=$name.$i;
+        
     }
     $body = isset($_POST['body'])?$_POST['body']:'';
     $active = isset($_POST['activepage'])?1:0;

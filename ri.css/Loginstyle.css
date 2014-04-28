@@ -21,5 +21,13 @@ h1{
     border: 1px solid black;
     padding: 10px;
 }
+#editaction{
+    display: table;
+    margin: 0 auto;
+}
+#editaction th , td, table{
+    border: 1px solid black; 
+    padding: 5px;
+}
 
 

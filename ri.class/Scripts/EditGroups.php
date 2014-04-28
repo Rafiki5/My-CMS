@@ -26,4 +26,14 @@ if(isset($_GET['action']) && $_GET['action']=='del'){
     $_SESSION['posmsg']=$msgcodepositive['groupdeleted'];
     header("Location: /My-CMS/groups/groupslist");  
 }
+if(isset($_POST['editaction'])){
+    $action=array();
+    if(isset($_POST['action']))
+        $action = $_POST['action'];
+    $action = json_encode($action);
+    $id = $_POST['id'];
+    $database->fetchOne("update groups set action=? where id=?", array($action, $id));
+    $_SESSION['posmsg']=$msgcodepositive['groupwaschange'];
+    header("Location: /My-CMS/groups/groupslist"); 
+}
 ?>

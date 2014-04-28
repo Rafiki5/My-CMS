@@ -13,7 +13,7 @@
                 <td>{$group.name}</td>
                 <td>
                 {if $group.id neq 1 }
-                    <a href="/My-CMS/groups/roleedit">Edytuj </a>
+                    <a href="/My-CMS/groups/roleedit/{$group.id }">Edytuj </a>
                 {/if}
                 {if $group.id neq 1 AND $group.id neq 2}
                     <a onclick="confirm('Czy na pewno chcesz usunąć tą grupę?')" href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id={$group.id}">Usuń</a>           

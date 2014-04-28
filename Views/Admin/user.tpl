@@ -19,7 +19,7 @@
         </label>
         <input type="submit" name="edit" value="Edytuj"/>
         <input type="hidden" name="id" value="{$user.id}"/>
-        <input type="submit" name="delete" value="Usuń urzytkownika"
+        <input {if $user.id eq 1 }disabled=""{/if} type="submit" name="delete" value="Usuń urzytkownika"
                onclick="return confirm('Czy na pewno chcesz usunąć tego urzytkownika?')"/>
         <input formaction="/My-CMS/admin/changepass/{$user.id}" type="submit" name="editpassword" value="Zmień hasło"/>
     </fieldset>
