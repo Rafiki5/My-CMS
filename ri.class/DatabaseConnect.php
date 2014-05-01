@@ -1,11 +1,15 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT']. '/My-CMS/.private/config.php';
-
+if(file_exists($_SERVER['DOCUMENT_ROOT'].'/My-CMS/.private/config.php'))
+    require_once  $_SERVER['DOCUMENT_ROOT']. '/My-CMS/.private/config.php';
+else{
+    header("Location: /My-CMS/ri.installer/");
+    exit;    
+}
 class DBConnect{
     private static $instance = null;
     
-    private function __construct() {
-        
+    private function __construct() {    
+ 
 	        try {                
                     global $DBVARIABLE;
                     self::$instance = new PDO('mysql:host='.@$DBVARIABLE['dbhost']

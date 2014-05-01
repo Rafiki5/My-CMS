@@ -1,0 +1,46 @@
+html, body, h1{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: cornflowerblue;
+}
+
+#container{
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    background: white;
+    word-wrap: break-word;   
+}
+header{
+    background: lightblue;
+    height: 100px;
+    padding: 10px;
+}
+footer{
+    height: 50px;
+    background: lightblue;
+}
+#content{
+       padding: 10px;
+       overflow-y: auto;
+}
+#content p{
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+}
+p.error{
+    background: lightcoral;
+}
+p.correct{
+    background: lightgreen;
+}
+footer p{
+    text-align: center;
+}
+form{
+    display: table;
+    margin: 0 auto;
+}
