@@ -13,7 +13,9 @@ $msgcode = array(
     'fieldisempty'=>'Pola nie mogą być puste',
     'notnumeric'=>'Tytuł i/lub nazwa strony nie mogą być liczbami',
     'cannotdeletegroup'=>'Nie można usunąć grupy',
-    'pageexist'=>'Strona o podanej nazwie już istnieje'
+    'pageexist'=>'Strona o podanej nazwie już istnieje',
+    'shortpass'=>'Hasło musi mieć minimum 8 znaków',
+    'shortname'=>'Nazwa strony musi mieć minimum 3 xnaki'
     
 );
 $msgcodepositive=array(

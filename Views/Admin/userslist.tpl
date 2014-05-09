@@ -19,7 +19,7 @@
             {/foreach}
             </td>
         {/if}
-        <td><a href="/My-CMS/admin/user/{$user[i].id}">Edytuj</a></td>
+        <td><a href="/admin/user/{$user[i].id}">Edytuj</a></td>
         </tr>
             {/section}
     </tbody>

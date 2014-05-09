@@ -44,3 +44,9 @@ form{
     display: table;
     margin: 0 auto;
 }
+#negmsg{
+    margin: 0;
+    padding: 10px;
+    background: red;
+    color: wheat;
+}

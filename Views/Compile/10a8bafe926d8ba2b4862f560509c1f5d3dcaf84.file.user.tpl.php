@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-25 15:52:38
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-09 16:05:28
          compiled from ".\Views\Admin\user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:840453163439666175-85930068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '10a8bafe926d8ba2b4862f560509c1f5d3dcaf84' => 
     array (
       0 => '.\\Views\\Admin\\user.tpl',
-      1 => 1398433948,
+      1 => 1399643360,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53163439707e79_20080263')) {function content_53163439707e79_20080263($_smarty_tpl) {?><form id="login" action="/My-CMS/ri.class/Scripts/EditUser.php" method="POST">
+<?php if ($_valid && !is_callable('content_53163439707e79_20080263')) {function content_53163439707e79_20080263($_smarty_tpl) {?><form id="login" action="/ri.class/Scripts/EditUser.php" method="POST">
     <fieldset>
         <legend>Edytuj Urzytkownika</legend>
         <label>Nazwa urzytkownika <br>
@@ -75,7 +75,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['i']['last']       = ($_smart
 "/>
         <input <?php if ($_smarty_tpl->tpl_vars['user']->value['id']==1) {?>disabled=""<?php }?> type="submit" name="delete" value="Usuń urzytkownika"
                onclick="return confirm('Czy na pewno chcesz usunąć tego urzytkownika?')"/>
-        <input formaction="/My-CMS/admin/changepass/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+        <input formaction="/admin/changepass/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 " type="submit" name="editpassword" value="Zmień hasło"/>
     </fieldset>
 </form><?php }} ?>

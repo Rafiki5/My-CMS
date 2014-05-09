@@ -13,16 +13,16 @@
                 <td>{$group.name}</td>
                 <td>
                 {if $group.id neq 1 }
-                    <a href="/My-CMS/groups/roleedit/{$group.id }">Edytuj </a>
+                    <a href="/groups/roleedit/{$group.id }">Edytuj </a>
                 {/if}
                 {if $group.id neq 1 AND $group.id neq 2}
-                    <a onclick="confirm('Czy na pewno chcesz usunąć tą grupę?')" href="/My-CMS/ri.class/Scripts/EditGroups.php?action=del&id={$group.id}">Usuń</a>           
+                    <a onclick="confirm('Czy na pewno chcesz usunąć tą grupę?')" href="/ri.class/Scripts/EditGroups.php?action=del&id={$group.id}">Usuń</a>           
                 {/if}
                 </td>
             </tr>
         {/foreach}
         <tr>
-    <form action="/My-CMS/ri.class/Scripts/EditGroups.php" method="post">
+    <form action="/ri.class/Scripts/EditGroups.php" method="post">
         <td>Dodaj grupe</td>
         <td><input type="text" name="groupname"/></td>
         <td><input type="submit" name="addgroup" value="Dodaj"/></td>

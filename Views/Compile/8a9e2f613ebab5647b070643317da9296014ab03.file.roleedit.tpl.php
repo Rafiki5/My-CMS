@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-28 15:40:06
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-09 21:56:30
          compiled from ".\Views\Groups\roleedit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:23643534e98dc7e8bf9-52054481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8a9e2f613ebab5647b070643317da9296014ab03' => 
     array (
       0 => '.\\Views\\Groups\\roleedit.tpl',
-      1 => 1398692403,
+      1 => 1399643459,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_534e98dc817a08_36735774')) {function content_534e98dc817a08_36735774($_smarty_tpl) {?><form id="editaction" method="post" action="/My-CMS/ri.class/Scripts/EditGroups.php">
+<?php if ($_valid && !is_callable('content_534e98dc817a08_36735774')) {function content_534e98dc817a08_36735774($_smarty_tpl) {?><form id="editaction" method="post" action="/ri.class/Scripts/EditGroups.php">
     <table>
         <thead>
             <tr>

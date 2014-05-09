@@ -14,18 +14,12 @@
                  
            </header>
         <div id="content">       
-<?php
-    session_start();
-    require_once './check.php';
-    $allCorect=0;
-    checkPhpVersion($allCorect);
-    checkMysqlLoadet($allCorect);
-    checkFileSaved("ri.files", $allCorect);
-    checkFileSaved(".private", $allCorect);
-    if($allCorect==4)
-        echo '<a href="step2.php">&gt&gt&gt</a>';
-    $_SESSION['allcorrect']=$allCorect;
-?>
+            <?php
+                if(!file_exists("../.private/config.php"))
+                    header("Location: index.php");
+            ?>
+            <p>Instalacja zakończona pomyślnie</p>
+            <p>Aby przejść do systemu kliknij <a href="../index.php">Tutaj</a></p>
         </div>
             <footer>
                 <p>Copyright Rafał Iwko</p>
@@ -33,3 +27,4 @@
             </div>
     </body>
 </html>
+

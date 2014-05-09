@@ -16,8 +16,10 @@ class Pages {
         if($id!=null){
             $content = $this->database->fetchOne("select pages.id, pages.active as pactive, pages.title,
                pages.name, pages.body, menu.active as mactive from pages cross join menu on
-               (pages.id=menu.pages_id and pages.id=?)", array($id));           
+               pages.id=menu.pages_id and pages.id=?", array($id));           
         }   
+        echo $id;
+        var_dump($content);
         $this->smarty->assign("content", $content);
         $pages =  $this->database->fetchAll("select * from pages");
         $this->smarty->assign("pages", $pages);
@@ -32,7 +34,7 @@ class Pages {
         $menu= $this->database->fetchAll("SELECT pages.name, pages.active AS pactive,
                 menu.active AS mactive, menu.path
                 FROM pages
-                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active");
+                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active and pages.active");
         if(!$resp){
             $this->error();
         }else{
@@ -48,7 +50,7 @@ class Pages {
         $menu= $this->database->fetchAll("SELECT pages.name, pages.active AS pactive,
                 menu.active AS mactive, menu.path
                 FROM pages
-                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active");
+                CROSS JOIN menu ON pages.id = menu.pages_id and menu.active and pages.active");
         if(!$resp){
             $this->error();
         }else{

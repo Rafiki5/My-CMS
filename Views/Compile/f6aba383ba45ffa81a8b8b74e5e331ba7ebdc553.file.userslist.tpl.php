@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-04 20:52:41
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-09 16:05:25
          compiled from ".\Views\Admin\userslist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1386353163433c5cc05-68734388%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f6aba383ba45ffa81a8b8b74e5e331ba7ebdc553' => 
     array (
       0 => '.\\Views\\Admin\\userslist.tpl',
-      1 => 1396637343,
+      1 => 1399643374,
       2 => 'file',
     ),
   ),
@@ -75,7 +75,7 @@ $_smarty_tpl->tpl_vars['role']->_loop = true;
             <?php } ?>
             </td>
         <?php }?>
-        <td><a href="/My-CMS/admin/user/<?php echo $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['id'];?>
+        <td><a href="/admin/user/<?php echo $_smarty_tpl->tpl_vars['user']->value[$_smarty_tpl->getVariable('smarty')->value['section']['i']['index']]['id'];?>
 ">Edytuj</a></td>
         </tr>
             <?php endfor; endif; ?>

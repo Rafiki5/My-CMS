@@ -1,4 +1,4 @@
-<form id="login" action="/My-CMS/ri.class/Scripts/EditUser.php" method="POST">
+<form id="login" action="/ri.class/Scripts/EditUser.php" method="POST">
     <fieldset>
         <legend>Edytuj Urzytkownika</legend>
         <label>Nazwa urzytkownika <br>
@@ -21,6 +21,6 @@
         <input type="hidden" name="id" value="{$user.id}"/>
         <input {if $user.id eq 1 }disabled=""{/if} type="submit" name="delete" value="Usuń urzytkownika"
                onclick="return confirm('Czy na pewno chcesz usunąć tego urzytkownika?')"/>
-        <input formaction="/My-CMS/admin/changepass/{$user.id}" type="submit" name="editpassword" value="Zmień hasło"/>
+        <input formaction="/admin/changepass/{$user.id}" type="submit" name="editpassword" value="Zmień hasło"/>
     </fieldset>
 </form>

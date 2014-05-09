@@ -1,8 +1,8 @@
 <?php
-if(file_exists($_SERVER['DOCUMENT_ROOT'].'/My-CMS/.private/config.php'))
-    require_once  $_SERVER['DOCUMENT_ROOT']. '/My-CMS/.private/config.php';
+if(file_exists($_SERVER['DOCUMENT_ROOT'].'/.private/config.php'))
+    require_once  $_SERVER['DOCUMENT_ROOT']. '/.private/config.php';
 else{
-    header("Location: /My-CMS/ri.installer/");
+    header("Location: /ri.installer/");
     exit;    
 }
 class DBConnect{

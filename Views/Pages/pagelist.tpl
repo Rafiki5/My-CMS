@@ -2,12 +2,12 @@
 <ul id="page-list">Lista utworzonych stron
     {if $pages}
     {foreach from=$pages item=page}
-        <li><a href="/My-CMS/pages/pageslist/{$page.id}">{$page.name}</a></li>
+        <li><a href="/pages/pageslist/{$page.id}">{$page.name}</a></li>
     {/foreach}
     {/if}
-    <li><a href="/My-CMS/pages/pageslist">Dodaj nową stronę</a> </li>
+    <li><a href="/pages/pageslist">Dodaj nową stronę</a> </li>
 </ul>
-<form id="pages" method="post" action="/My-CMS/ri.class/Scripts/EditPage.php">
+<form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
         <table>

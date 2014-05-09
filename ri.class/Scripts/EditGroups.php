@@ -9,22 +9,22 @@ if(isset($_POST['addgroup'])){
     $name = trim(str_replace("_", "", $name));
     if($name == ''){
         $_SESSION['negmsg']=$msgcode['emptyfield'];
-        header("Location: /My-CMS/groups/groupslist");  
+        header("Location: /groups/groupslist");  
         exit;
     }
     $database->fetchOne("insert into groups (name) value (?)", array($name));
-    header("Location: /My-CMS/groups/groupslist"); 
+    header("Location: /groups/groupslist"); 
 }
 if(isset($_GET['action']) && $_GET['action']=='del'){
     $id = $_GET['id'];
     if($id == 1 || $id == 2){
         $_SESSION['negmsg']=$msgcode['cannotdeletegroup'];
-        header("Location: /My-CMS/groups/groupslist");  
+        header("Location: /groups/groupslist");  
         exit;
     }
     $database->fetchOne("delete from groups where id=?", array($id));
     $_SESSION['posmsg']=$msgcodepositive['groupdeleted'];
-    header("Location: /My-CMS/groups/groupslist");  
+    header("Location: /groups/groupslist");  
 }
 if(isset($_POST['editaction'])){
     $action=array();
@@ -34,6 +34,6 @@ if(isset($_POST['editaction'])){
     $id = $_POST['id'];
     $database->fetchOne("update groups set action=? where id=?", array($action, $id));
     $_SESSION['posmsg']=$msgcodepositive['groupwaschange'];
-    header("Location: /My-CMS/groups/groupslist"); 
+    header("Location: /groups/groupslist"); 
 }
 ?>

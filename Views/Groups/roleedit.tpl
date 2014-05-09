@@ -1,4 +1,4 @@
-<form id="editaction" method="post" action="/My-CMS/ri.class/Scripts/EditGroups.php">
+<form id="editaction" method="post" action="/ri.class/Scripts/EditGroups.php">
     <table>
         <thead>
             <tr>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-04-04 20:52:52
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-09 17:20:53
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1396637343,
+      1 => 1399643547,
       2 => 'file',
     ),
   ),
@@ -33,14 +33,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['page']->key => $_smarty_tpl->tpl_vars['page']->value) {
 $_smarty_tpl->tpl_vars['page']->_loop = true;
 ?>
-        <li><a href="/My-CMS/pages/pageslist/<?php echo $_smarty_tpl->tpl_vars['page']->value['id'];?>
+        <li><a href="/pages/pageslist/<?php echo $_smarty_tpl->tpl_vars['page']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['page']->value['name'];?>
 </a></li>
     <?php } ?>
     <?php }?>
-    <li><a href="/My-CMS/pages/pageslist">Dodaj nową stronę</a> </li>
+    <li><a href="/pages/pageslist">Dodaj nową stronę</a> </li>
 </ul>
-<form id="pages" method="post" action="/My-CMS/ri.class/Scripts/EditPage.php">
+<form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
         <table>

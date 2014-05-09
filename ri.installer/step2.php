@@ -13,14 +13,20 @@
 
 
            </header>
-        <div id="content">       
             <?php
             session_start();
+            if(isset($_SESSION['negmsg'])){
+                    echo '<div id="negmsg">'.$_SESSION['negmsg'].'</div>';
+                  unset($_SESSION['negmsg']);
+              }  
+              ?>
+        <div id="content">       
+            <?php
             if($_SESSION['allcorrect']!=4){
                 header("Location: index.php");
             }           
             ?>
-            <form method="post" action="">
+            <form method="post" action="dataverify.php">
                 <fieldset>
                     <table>
                         <thead>
@@ -28,7 +34,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Nazwa bzy danych</td>
+                                <td>Nazwa bazy danych</td>
                                 <td>
                                     <input type="text" name="namedb"/>
                                 </td>
@@ -48,9 +54,10 @@
                              <tr>
                                 <td>Hasło</td>
                                 <td>
-                                    <input type="text" name="passdb"/>
+                                    <input type="password" name="passdb"/>
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
                     <table>
@@ -67,7 +74,13 @@
                             <tr>
                                 <td>Hasło</td>
                                 <td>
-                                    <input type="text" name="adminpass" />
+                                    <input type="password" name="adminpass" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Powtórz hasło</td>
+                                <td>
+                                    <input type="password" name="adminpass2"/>
                                 </td>
                             </tr>
                              <tr>

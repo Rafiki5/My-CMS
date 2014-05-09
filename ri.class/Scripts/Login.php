@@ -18,12 +18,12 @@ if(isset($_POST['login'])){
                 $_SESSION['userdata']['role'][$g]=true;
         }      
         if(isset($_SESSION['userdata'])){
-                header ("Location: /My-CMS/");
+                header ("Location: http://".$_SERVER['HTTP_HOST']);
         }          
     }
      else {
         $_SESSION['negmsg']= htmlspecialchars($msgcode['notlogin']);
-        header ("Location: /My-CMS/admin/login");
+        header ("Location: /admin/login");
     }
 }
 if(isset($_POST['reset'])){
@@ -44,28 +44,28 @@ if(isset($_POST['reset'])){
     $email = trim($email);
     if($email==''){
         $_SESSION['negmsg']=htmlspecialchars($msgcode['emptyfield']);
-        header("Location: /My-CMS/admin/reset".$id); 
+        header("Location: /admin/reset".$id); 
         exit;  
     }
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $_SESSION['negmsg']=htmlspecialchars($msgcode['wrongemail']);
-            header("Location: /My-CMS/admin/reset".$id);           
+            header("Location: /admin/reset".$id);           
             exit;
         }
     $database->fetchOne("update users set acceskey=? where email=? ", array($codeid, $_POST['email'])); 
     sendmail($_POST['email'], $pass, $codeid);
     $_SESSION['posmsg']=htmlspecialchars($msgcodepositive['sendemailpass']);
-    header('Location: /My-CMS/admin/login');
+    header('Location: /admin/login');
 }
 if(isset($_GET['action']) && $_GET['action']=="logout"){
     unset($_SESSION['userdata']);
-    header("Location: /My-CMS/");   
+    header("Location: http://".$_SERVER['HTTP_HOST']);   
 }
 if(isset($_GET['action']) && $_GET['action']=='verification'){
     $pass=  md5($_GET['change']);
     $database->fetchOne("update users set password=?  where acceskey=?", array($pass, $_GET['codeid'])); 
     $_SESSION['posmsg']=htmlspecialchars($msgcodepositive['resetpass']);
-    header("Location: /My-CMS/admin/login");
+    header("Location: /admin/login");
 }
 
 ?>
