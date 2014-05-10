@@ -6,10 +6,14 @@
         
         <link type="text/css" rel="stylesheet" href="/ri.css/Loginstyle.css"/>
         <link type="text/css" rel="stylesheet" href="/ri.css/containerstyle.css"/>
-        <script type="text/javascript" src="/ri.js/jquery-1.8.0.js"></script>
+        <link type="text/css" rel="stylesheet" href="/ri.js/jquery-ui-1.10.4.custom/css/smoothness/jquery-ui-1.10.4.custom.css"/>
+        <script type="text/javascript" src="/ri.js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="/ri.js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.js"></script>
         <script type="text/javascript" src="/ri.js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript" src="/ri.js/tinymceinit.js"></script>
         <script type="text/javascript" src="/ri.js/ajaxchat.js"></script>
+            
+        <script type="text/javascript" src="/ri.js/script.js"></script>
     </head>
     <body>
         <div class="container">

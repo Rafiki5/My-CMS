@@ -10,7 +10,13 @@
 <form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
-        <table>
+        <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Dane podstawowe</a></li>
+            <li><a href="#tabs-2">Komentarze</a></li>
+        </ul>
+        
+        <table id="tabs-1">
             <tr><td>
         
         <label>Tytuł strony<br>
@@ -42,6 +48,12 @@
         {/if}
         </td></tr>
         </table>
+        <table id="tabs-2">
+            <tr>
+                <td>sdfsdhfgdhg</td>
+            </tr>
+        </table>
+        </div>
     </fieldset>
 
 </form>

@@ -18,8 +18,6 @@ class Pages {
                pages.name, pages.body, menu.active as mactive from pages cross join menu on
                pages.id=menu.pages_id and pages.id=?", array($id));           
         }   
-        echo $id;
-        var_dump($content);
         $this->smarty->assign("content", $content);
         $pages =  $this->database->fetchAll("select * from pages");
         $this->smarty->assign("pages", $pages);

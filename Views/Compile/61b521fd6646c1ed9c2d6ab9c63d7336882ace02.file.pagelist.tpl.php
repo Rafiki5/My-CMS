@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-05-09 17:20:53
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-10 09:53:04
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1399643547,
+      1 => 1399708382,
       2 => 'file',
     ),
   ),
@@ -43,7 +43,13 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
 <form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
-        <table>
+        <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Dane podstawowe</a></li>
+            <li><a href="#tabs-2">Komentarze</a></li>
+        </ul>
+        
+        <table id="tabs-1">
             <tr><td>
         
         <label>Tytuł strony<br>
@@ -79,6 +85,12 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         <?php }?>
         </td></tr>
         </table>
+        <table id="tabs-2">
+            <tr>
+                <td>sdfsdhfgdhg</td>
+            </tr>
+        </table>
+        </div>
     </fieldset>
 
 </form>
