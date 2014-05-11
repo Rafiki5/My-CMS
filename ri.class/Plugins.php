@@ -12,6 +12,7 @@ class Plugins {
             
     }
     public function pluginslist(){
+        
         $this->smarty->display("pluginslist.tpl");
     }
 }

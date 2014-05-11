@@ -20,6 +20,7 @@ h1{
 #pages fieldset{
     border: 1px solid black;
     padding: 10px;
+    
 }
 #editaction{
     display: table;
@@ -28,6 +29,12 @@ h1{
 #editaction th , td, table{
     border: 1px solid black; 
     padding: 5px;
+}
+#pages table{
+    font-size: 12px;
+}
+#tabs a{
+    outline: none;
 }
 
 
