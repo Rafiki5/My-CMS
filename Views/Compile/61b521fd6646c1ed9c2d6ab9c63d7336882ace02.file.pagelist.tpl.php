@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-05-13 19:36:52
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-14 20:10:19
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1400002602,
+      1 => 1400090890,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'page' => 0,
     'title' => 0,
     'content' => 0,
-    'comment' => 0,
+    'path' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -41,7 +41,7 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
     <?php } ?>
     <?php }?>
     <li><a href="/pages/pageslist">Dodaj nową stronę</a> </li>
-</ul>
+</ul>     
 <form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
@@ -53,7 +53,7 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
 </a></li>
             <?php }?>
         </ul>
-        
+   
         <table id="tabs-1">
             <tr><td>
         
@@ -90,13 +90,12 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         <?php }?>
         </td></tr>
         </table>
-        <?php if (isset($_smarty_tpl->tpl_vars['comment']->value)) {?>
-            <?php echo $_smarty_tpl->getSubTemplate (((string)$_smarty_tpl->tpl_vars['comment']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+        <?php if (isset($_smarty_tpl->tpl_vars['path']->value)) {?>
+            <?php echo $_smarty_tpl->getSubTemplate (((string)$_smarty_tpl->tpl_vars['path']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
         <?php }?>
         </div>
     </fieldset>
-
 </form>
 
 <?php }} ?>

@@ -6,7 +6,7 @@
     {/foreach}
     {/if}
     <li><a href="/pages/pageslist">Dodaj nową stronę</a> </li>
-</ul>
+</ul>     
 <form id="pages" method="post" action="/ri.class/Scripts/EditPage.php">
     <fieldset>
         <legend>Edytowanie stron</legend>
@@ -17,7 +17,7 @@
             <li><a href="#tabs-2">{$title}</a></li>
             {/if}
         </ul>
-        
+   
         <table id="tabs-1">
             <tr><td>
         
@@ -50,11 +50,10 @@
         {/if}
         </td></tr>
         </table>
-        {if isset($comment)}
-            {include file="{$comment}"}
+        {if isset($path)}
+            {include file="{$path}"}
         {/if}
         </div>
     </fieldset>
-
 </form>
 

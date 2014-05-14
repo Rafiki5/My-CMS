@@ -14,18 +14,18 @@ class Pages {
         $this->smarty->setTemplateDir("./Views/Pages/");
         $content=null;
         if($id!=null){
+            global $PLUGINS; 
+            if(isset($PLUGINS['CommentPlugin'])){
+                require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/CommentPlugin/PluginFunction.php';
+                get_data($this->smarty, $id);
+            
+            }
             $content = $this->database->fetchOne("select pages.id, pages.active as pactive, pages.title,
                pages.name, pages.body, menu.active as mactive from pages cross join menu on
                pages.id=menu.pages_id and pages.id=?", array($id));           
         }   
         $this->smarty->assign("content", $content);
-        $pages =  $this->database->fetchAll("select * from pages");
-        global $PLUGINS;
-        if(isset($PLUGINS['CommentPlugin'])){
-            $this->smarty->assign("title", $PLUGINS['CommentPlugin']['title']);
-            $this->smarty->assign ("comment",$PLUGINS['CommentPlugin']['tplname'] );
-        }
-            
+        $pages =  $this->database->fetchAll("select id, name from pages");   
         $this->smarty->assign("pages", $pages);
         $this->smarty->display("pagelist.tpl");     
     }

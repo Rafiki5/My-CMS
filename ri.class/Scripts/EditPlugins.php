@@ -1,6 +1,8 @@
 <?php
-require_once '../../.private/config.php';
-require_once '../../ri.plugins/'.$_GET['plugin'].'/config.php';
+
+require_once $_SERVER['DOCUMENT_ROOT']. '/.private/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/'.$_GET['plugin'].'/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/'.$_GET['plugin'].'/PluginFunction.php';
 global $DBVARIABLE;
 global $plugin;
 if(isset($_GET['plugin'])){
@@ -14,20 +16,27 @@ if(isset($_GET['plugin'])){
     if($action=='add'){
         if(!in_array($pluginname, $DBVARIABLE['plugins'])){
             $DBVARIABLE['plugins'][]=$pluginname;
+            if($plugin['createdtable']=='false'){
+                create_table();
+                $plugin['createdtable']='true';
+            }
             $config='<?php 
             $plugin=array(
             \'title\'=>\''.$plugin['title'].'\',
             \'name\'=>\''.$plugin['name'].'\',  
             \'description\'=>\''.$plugin['description'].'\',
             \'active\'=>\'true\',
-            \'tplname\'=>\'ri.plugins/CommentPlugin/comment.tpl\'
+            \'tplname\'=>\''.$plugin['tplname'].'\',
+            \'createdtable\'=>\''.$plugin['createdtable'].'\'
         );';
     file_put_contents('../../ri.plugins/'.$pluginname.'/config.php', $config);
     header('Location: /plugins/pluginslist');
         }
          
     }else if($action=='remove'){
+        
         if(in_array($pluginname, $DBVARIABLE['plugins'])){
+              echo 'rt';
             unset($DBVARIABLE['plugins'][array_search($pluginname, $DBVARIABLE['plugins'])]);   
             $config='<?php 
             $plugin=array(
@@ -35,8 +44,10 @@ if(isset($_GET['plugin'])){
             \'name\'=>\''.$plugin['name'].'\',  
             \'description\'=>\''.$plugin['description'].'\',
             \'active\'=>\'false\',
-            \'tplname\'=>\'ri.plugins/CommentPlugin/comment.tpl\'
+            \'tplname\'=>\''.$plugin['tplname'].'\',
+            \'createdtable\'=>\''.$plugin['createdtable'].'\'
         );';
+  
     file_put_contents('../../ri.plugins/'.$pluginname.'/config.php', $config);
        header('Location: /plugins/pluginslist');   
     }
