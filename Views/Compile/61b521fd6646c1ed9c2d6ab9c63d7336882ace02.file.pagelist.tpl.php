@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-05-10 09:53:04
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-13 19:36:52
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1399708382,
+      1 => 1400002602,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'pages' => 0,
     'page' => 0,
+    'title' => 0,
     'content' => 0,
+    'comment' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -46,7 +48,10 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         <div id="tabs">
         <ul>
             <li><a href="#tabs-1">Dane podstawowe</a></li>
-            <li><a href="#tabs-2">Komentarze</a></li>
+            <?php if (isset($_smarty_tpl->tpl_vars['title']->value)) {?>
+            <li><a href="#tabs-2"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</a></li>
+            <?php }?>
         </ul>
         
         <table id="tabs-1">
@@ -85,11 +90,10 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         <?php }?>
         </td></tr>
         </table>
-        <table id="tabs-2">
-            <tr>
-                <td>sdfsdhfgdhg</td>
-            </tr>
-        </table>
+        <?php if (isset($_smarty_tpl->tpl_vars['comment']->value)) {?>
+            <?php echo $_smarty_tpl->getSubTemplate (((string)$_smarty_tpl->tpl_vars['comment']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+        <?php }?>
         </div>
     </fieldset>
 

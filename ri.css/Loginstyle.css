@@ -3,7 +3,7 @@ body{
     background: cornflowerblue;
 }
 
-#login{
+#login , #plugins{
     display: table;
     margin: 0 auto;
     

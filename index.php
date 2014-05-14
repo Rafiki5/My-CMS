@@ -19,13 +19,14 @@
         <div class="container">
         <header>
             <?php
-            ini_set(E_ALL);
+            //ini_set(E_ALL);
                 require_once 'Controllers/DefaultController.php';
                 require_once 'Controllers/AdminController.php';
                 require_once 'Controllers/PagesController.php';
                 require_once 'Controllers/GroupsController.php';
                 require_once 'ri.class/Scripts/isLogged.php';
-                require_once './Controllers/PluginsController.php';
+                require_once 'Controllers/PluginsController.php';
+                require_once 'ri.class/Scripts/setPlugin.php';
                 require 'Benchmark/Timer.php';
                 session_start();
                 isLogin();

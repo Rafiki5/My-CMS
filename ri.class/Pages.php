@@ -20,6 +20,12 @@ class Pages {
         }   
         $this->smarty->assign("content", $content);
         $pages =  $this->database->fetchAll("select * from pages");
+        global $PLUGINS;
+        if(isset($PLUGINS['CommentPlugin'])){
+            $this->smarty->assign("title", $PLUGINS['CommentPlugin']['title']);
+            $this->smarty->assign ("comment",$PLUGINS['CommentPlugin']['tplname'] );
+        }
+            
         $this->smarty->assign("pages", $pages);
         $this->smarty->display("pagelist.tpl");     
     }

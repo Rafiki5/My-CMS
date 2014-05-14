@@ -13,7 +13,9 @@
         <div id="tabs">
         <ul>
             <li><a href="#tabs-1">Dane podstawowe</a></li>
-            <li><a href="#tabs-2">Komentarze</a></li>
+            {if isset($title)}
+            <li><a href="#tabs-2">{$title}</a></li>
+            {/if}
         </ul>
         
         <table id="tabs-1">
@@ -48,11 +50,9 @@
         {/if}
         </td></tr>
         </table>
-        <table id="tabs-2">
-            <tr>
-                <td>sdfsdhfgdhg</td>
-            </tr>
-        </table>
+        {if isset($comment)}
+            {include file="{$comment}"}
+        {/if}
         </div>
     </fieldset>
 

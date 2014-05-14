@@ -80,15 +80,17 @@ $errors='';
         mysql_query("insert into groups (name) value ('_superadministrator')");
         mysql_query("insert into groups (name) value ('_administrator')");
         mysql_query("insert into groups (name) value ('Edytor strom')");
-         mysql_query("insert into groups (name) value ('Gość')");
+        mysql_query("insert into groups (name) value ('Gość')");
         
         $query = "create table menu (
        id int(11) not null auto_increment,
        active bool not null default 0,
        path text not null ,
        pages_id int(11) not null,
-       primary key(id))";
+       primary key(id));";
+        mysql_query($query);
         mysql_query("insert into menu (`path`, `pages_id`) value ('Strona domowa', 1)");
+        echo mysql_error();
 //---------------------------------------------------------
         header("Location: step3.php");
     }

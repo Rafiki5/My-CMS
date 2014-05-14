@@ -7,11 +7,13 @@ else{
 }
 global $DBVARIABLE;
 $PLUGINS=array();
-if(isset($DBVARIABLE['plugins']) && $database['plugins']!=''){
+if(isset($DBVARIABLE['plugins']) && $DBVARIABLE['plugins']!=''){
     $DBVARIABLE['plugins']=  explode(",", $DBVARIABLE['plugins']);
     foreach ($DBVARIABLE['plugins'] as $pluginname){
-        
+        require_once 'ri.plugins/'.$pluginname.'/config.php';
+        global $plugin;
+        $PLUGINS[$pluginname]=$plugin;
+       
     }
 }
-
 

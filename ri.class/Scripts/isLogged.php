@@ -6,6 +6,7 @@ function isLogin(){
         <ul id='right-menu'>
         <li><a href='/'>Strona Główna</a></li>
         <li><a href='/pages/pageslist'>Strony</a></li>
+        <li><a href='/plugins/pluginslist'>Wtyczki</a></li>
         <li><a href='/admin/userslist'>Urzytkownicy</a></li>
         <li><a href='/ri.class/Scripts/Login.php?action=logout'>Wyloguj</a></li>
         </ul>";

@@ -2,8 +2,8 @@
 function checkPhpVersion(&$array){
     if(file_exists("../.private/config.php"))
         exit;
-    if (version_compare(PHP_VERSION, '5.5.9', '<')){
-        echo '<p class="error">Wymagana minimalna wersja php to 5.5.9</p>';        
+    if (version_compare(PHP_VERSION, '5.4.0', '<')){
+        echo '<p class="error">Wymagana minimalna wersja php to 5.4.0. Twoja wersja  php to '.  phpversion().'</p>';        
     }else{
          echo '<p class="correct">Twoja wersja php spełnia wymagania</p>';
         $array++;
