@@ -14,6 +14,7 @@ function isLogin(){
     }else{
         $menu="
         <ul id='right-menu'>
+        <li><a href='/'>Strona Główna</a></li>
         <li><a href='/admin/login'>Zaloguj się</a></li>
         <li><a href='/admin/registeruser'>Zarejestruj się</a></li>
         </ul>";

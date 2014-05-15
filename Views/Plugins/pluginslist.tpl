@@ -20,5 +20,6 @@
     {/section}
     </tbody>
     </table>
-
+{else}
+    <p id="plugindefected">W katalogu ri.plugins nie ma wtyczek</p>
 {/if}

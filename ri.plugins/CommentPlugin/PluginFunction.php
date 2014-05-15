@@ -24,7 +24,7 @@ if(isset($_POST['savecomment'])){
     $comment=  htmlspecialchars($comment);
     $id=$_POST['id'];
     $database->fetchOne("insert into comments (author, text, page_id)value(?, ?, ?)", array($username, $comment, $id));
-    header("Location:".$_SERVER['HTTP_REFERER']);
+    header("Location: ".$_SERVER['HTTP_REFERER']);
     
 }
 if(isset($_GET['action']) && $_GET['action']=='delete'){
@@ -32,12 +32,16 @@ if(isset($_GET['action']) && $_GET['action']=='delete'){
     session_start();
     if(!isset($_SESSION['userdata']['role']['_superadministrator'])){
         $_SESSION['negmsg']=$msgcode['accessblocked'];
-        header("Location:".$_SERVER['HTTP_REFERER']);
-        exit;
+         if (isset($_SERVER['HTTP_REFERER']))
+            header("Location: ".$_SERVER['HTTP_REFERER']);
+         else
+            header("Location: /");
+    }else{
+        $database->fetchOne("delete from comments where id=?", array($_GET['id']));
+        $_SESSION['posmsg']=$msgcodepositive['commentdeleted'];
+        header("Location: ".$_SERVER['HTTP_REFERER']);
     }
-    $database->fetchOne("delete from comments where id=?", array($_GET['id']));
-    $_SESSION['posmsg']=$msgcodepositive['commentdeleted'];
-    header("Location:".$_SERVER['HTTP_REFERER']);
+    
 }
 function create_table(){
     

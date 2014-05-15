@@ -5,7 +5,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/'.$_GET['plugin'].'/config.p
 require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/'.$_GET['plugin'].'/PluginFunction.php';
 global $DBVARIABLE;
 global $plugin;
+session_start();
 if(isset($_GET['plugin'])){
+    if(!isset($_SESSION['userdata']['role']['_superadministrator']) && 
+      !isset($_SESSION['userdata']['role']['_administrator'])){
+        header("Location: /");
+        exit();
+    }
     $pluginname= $_GET['plugin'];
     $action= $_GET['action'];
     if(isset($DBVARIABLE['plugins'])&&$DBVARIABLE['plugins']!='')

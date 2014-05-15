@@ -10,9 +10,12 @@ $PLUGINS=array();
 if(isset($DBVARIABLE['plugins']) && $DBVARIABLE['plugins']!=''){
     $DBVARIABLE['plugins']=  explode(",", $DBVARIABLE['plugins']);
     foreach ($DBVARIABLE['plugins'] as $pluginname){
-        require_once 'ri.plugins/'.$pluginname.'/config.php';
-        global $plugin;
-        $PLUGINS[$pluginname]=$plugin;
+        if(file_exists('ri.plugins/'.$pluginname.'/config.php')){
+            require_once 'ri.plugins/'.$pluginname.'/config.php';
+            global $plugin;
+            $PLUGINS[$pluginname]=$plugin;
+        }
+        
        
     }
 }

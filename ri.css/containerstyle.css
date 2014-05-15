@@ -126,3 +126,6 @@ div.comment{
 div.comment .author{
     border-bottom: 1px solid black;
 }
+#plugindefected{
+    text-align: center;
+}
