@@ -10,6 +10,10 @@ $adminname=@$_POST['adminname'];
 $adminpass=@$_POST['adminpass'];
 $adminpass2=@$_POST['adminpass2'];
 $adminemail=@$_POST['adminemail'];
+$adminname=  trim($adminname);
+$adminpass= trim($adminpass);
+$adminpass2= trim($adminpass2);
+$adminemail= trim($adminemail);
 $errors='';
     if($namedb=='' || $hostdb=='' || $userdb=='')
         $errors.='<p>Nazwa bazy danych, Host i Nazwa urzytkownika nie mogą być puste. </p>';
@@ -68,7 +72,7 @@ $errors='';
        primary key(id)) ";
        mysql_query($query);
        $adminpass=  md5($adminpass);
-       $groups = json_encode(array('_superadministrator', '_administrator'));
+       $groups = json_encode(array('_superadministrator'));
        mysql_query("INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
        VALUES ('$adminname','$adminemail','$adminpass', 1, '$groups')");
        

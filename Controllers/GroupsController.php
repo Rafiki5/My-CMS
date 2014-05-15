@@ -3,7 +3,7 @@ require_once 'Controller.php';
 class GroupsController extends Controller{
 
     public function groupslist(){
-        $this->isAdmin();
+        $this->isSuperAdminAdmin();
         $this->groups->groupslist();
     }
     public function roleedit($id){

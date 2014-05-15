@@ -15,7 +15,9 @@ $msgcode = array(
     'cannotdeletegroup'=>'Nie można usunąć grupy',
     'pageexist'=>'Strona o podanej nazwie już istnieje',
     'shortpass'=>'Hasło musi mieć minimum 8 znaków',
-    'shortname'=>'Nazwa strony musi mieć minimum 3 xnaki'
+    'shortname'=>'Nazwa strony musi mieć minimum 3 xnaki',
+    'editpluginerror'=>'Błąd edycji wtyczki',
+    'accessblocked'=>'Nie masz uprawnień do usuwania komentarzy'
     
 );
 $msgcodepositive=array(
@@ -27,6 +29,8 @@ $msgcodepositive=array(
     'pagechanged'=>'Strona została zaktualizowana',
     'pagewasadd'=>'Strona została dodana',
     'groupdeleted'=>'Grupa usunięta',
-    'groupwaschange'=>'Grupa została zaktualizowana'
+    'groupwaschange'=>'Grupa została zaktualizowana',
+    'commentdeleted'=>'Komentarz został usunięty',
+    'usercreated'=>'Urzytkownik został pomyślnie utworzony'
 );
 ?>

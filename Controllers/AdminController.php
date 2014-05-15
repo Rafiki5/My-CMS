@@ -11,7 +11,7 @@ class AdminController extends Controller{
            echo $result;
     }
     public function userslist(){
-        $this->isAdmin();
+        $this->isSuperAdmin();
         $this->users->userslist();
     }
     public function user($id){
@@ -21,6 +21,10 @@ class AdminController extends Controller{
     public function changepass($id){
         $this->isId();
         $this->users->changePass($id);
+    }
+    public function registeruser(){
+        $result = file_get_contents("./Views/Admin/registeruser.html");
+        echo $result;
     }
 }
 ?>

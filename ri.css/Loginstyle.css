@@ -3,7 +3,7 @@ body{
     background: cornflowerblue;
 }
 
-#login , #plugins{
+#login , #plugins, #register{
     display: table;
     margin: 0 auto;
     
@@ -36,5 +36,10 @@ h1{
 #tabs a{
     outline: none;
 }
+#tabs-2 td.commenttext{
+    word-break: break-all;
+    padding: 5px;
+}
+
 
 

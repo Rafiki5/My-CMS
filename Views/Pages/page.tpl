@@ -1,6 +1,3 @@
-<section id="content">
-    {$page.body}    
-</section>
 <aside id="mine-menu">
     {if $menu}
         <ul>Menu
@@ -13,3 +10,9 @@
         
     {/if}
 </aside>
+<section id="content">
+    {$page.body}   
+    {if isset($path)}
+            {include file="{$path}"}
+    {/if}
+</section>

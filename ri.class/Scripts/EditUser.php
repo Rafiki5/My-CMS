@@ -76,5 +76,45 @@ $id = isset($_POST['id'])?$_POST['id']:'';
         $_SESSION['posmsg']= htmlspecialchars($msgcodepositive['updated']);
         header("Location: /admin/userslist");
     }
+    if(isset($_POST['register'])){
+        $user=@$_POST['user'];
+        $pass=@$_POST['pass'];
+        $pass2=@$_POST['pass2'];
+        $email=@$_POST['email'];
+        $user=  trim($user);
+        $pass=  trim($pass);
+        $pass2=  trim($pass2);
+        $email= trim($email);
+        $errors='';
+        $emailexist=$database->fetchOne("select * from users where email=?", array($email));
+        $userexist=$database->fetchOne("select * from users where username=?", array($user));
+        if($userexist!=false)
+            $errors.="Urzytkownik o podanej nazwie już istnieje.<br>";
+        if($emailexist!=false)
+            $errors.="Adres e-mail już jest zajęty.<br>";
+        if($user=='' || $pass=='' || $pass2=='' || $email=='')
+            $errors.="Pola z danymi urzytkownika nie mogą być puste.<br>";
+        if(strlen($user)<5)
+            $errors.="Nazwa urzytkownika musi zawierać minimum 5 znaków.<br>";
+        if(strlen($pass)<8)
+            $errors.="Hasło urzytkownika musi zawierać minimum 8 znaków.<br>";
+        if($pass!=$pass2)
+            $errors.="Hasła nie są identyczne.<br>"; 
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            $errors.="Nieprawidłowy adres e-mail.";    
+        if($errors!=''){
+            $_SESSION['negmsg']=$errors;
+            header("Location: /admin/registeruser");
+            exit;
+    }else{
+       $pass=  md5($pass);
+       $groups = json_encode(array('Gość'));
+       $database->fetchOne("INSERT INTO users(`username`, `email`, `password`, `active`, `role`)
+        VALUES (?, ?, ?, ?, ?)", array($user, $email, $pass, 1, $groups));
+       $_SESSION['posmsg']=$msgcodepositive['usercreated'];
+       header("Location: /admin/login");
+    }
+        
+    }
 
 ?>

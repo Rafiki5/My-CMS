@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-05-14 20:10:19
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-15 15:51:52
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1400090890,
+      1 => 1400161908,
       2 => 'file',
     ),
   ),
@@ -58,11 +58,11 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
             <tr><td>
         
         <label>Tytuł strony<br>
-            <input type="text" name="title" value="<?php if ($_smarty_tpl->tpl_vars['content']->value) {?><?php echo $_smarty_tpl->tpl_vars['content']->value['title'];?>
+            <input maxlength="25" type="text" name="title" value="<?php if ($_smarty_tpl->tpl_vars['content']->value) {?><?php echo $_smarty_tpl->tpl_vars['content']->value['title'];?>
 <?php }?>"/>
         </label><br>
         <label>Nazwa strony<br>
-            <input type="text" name="name" value="<?php if ($_smarty_tpl->tpl_vars['content']->value) {?><?php echo $_smarty_tpl->tpl_vars['content']->value['name'];?>
+            <input maxlength="25" type="text" name="name" value="<?php if ($_smarty_tpl->tpl_vars['content']->value) {?><?php echo $_smarty_tpl->tpl_vars['content']->value['name'];?>
 <?php }?>"/>
         </label>
         </td><td>
@@ -72,7 +72,7 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         </label>
         </td></tr><tr><td colspan="2">
         <label>Treść strony<br>
-            <textarea name="body" rows="20" cols="60">
+            <textarea id="create-page" name="body" rows="20" cols="60">
 <?php if ($_smarty_tpl->tpl_vars['content']->value) {?>
 <?php echo $_smarty_tpl->tpl_vars['content']->value['body'];?>
 

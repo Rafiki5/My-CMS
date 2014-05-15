@@ -108,9 +108,21 @@ footer p{
 }
 section#content{
     width: 75%;
-    float: left;
+    float: right;
 }
 aside#mine-menu{
     width: 24%;
-    float: right;
+    float: left;
+}
+#create-comment{
+    display: table;
+}
+div.comment{
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 2px;
+   
+}
+div.comment .author{
+    border-bottom: 1px solid black;
 }

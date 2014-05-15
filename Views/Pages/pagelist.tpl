@@ -22,10 +22,10 @@
             <tr><td>
         
         <label>Tytuł strony<br>
-            <input type="text" name="title" value="{if $content}{$content.title}{/if}"/>
+            <input maxlength="25" type="text" name="title" value="{if $content}{$content.title}{/if}"/>
         </label><br>
         <label>Nazwa strony<br>
-            <input type="text" name="name" value="{if $content}{$content.name}{/if}"/>
+            <input maxlength="25" type="text" name="name" value="{if $content}{$content.name}{/if}"/>
         </label>
         </td><td>
         <label id="check">
@@ -34,7 +34,7 @@
         </label>
         </td></tr><tr><td colspan="2">
         <label>Treść strony<br>
-            <textarea name="body" rows="20" cols="60">
+            <textarea id="create-page" name="body" rows="20" cols="60">
 {if $content}
 {$content.body}
 {/if}

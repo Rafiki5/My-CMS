@@ -15,6 +15,7 @@ function isLogin(){
         $menu="
         <ul id='right-menu'>
         <li><a href='/admin/login'>Zaloguj się</a></li>
+        <li><a href='/admin/registeruser'>Zarejestruj się</a></li>
         </ul>";
         echo $menu;
     }

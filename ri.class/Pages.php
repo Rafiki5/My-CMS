@@ -17,8 +17,7 @@ class Pages {
             global $PLUGINS; 
             if(isset($PLUGINS['CommentPlugin'])){
                 require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/CommentPlugin/PluginFunction.php';
-                get_data($this->smarty, $id);
-            
+                get_data($this->smarty, $id);            
             }
             $content = $this->database->fetchOne("select pages.id, pages.active as pactive, pages.title,
                pages.name, pages.body, menu.active as mactive from pages cross join menu on
@@ -39,9 +38,15 @@ class Pages {
                 menu.active AS mactive, menu.path
                 FROM pages
                 CROSS JOIN menu ON pages.id = menu.pages_id and menu.active and pages.active");
+        
         if(!$resp){
             $this->error();
         }else{
+            global $PLUGINS; 
+            if(isset($PLUGINS['CommentPlugin'])&& $resp['commentactive']  && isset($_SESSION['userdata'])){
+                require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/CommentPlugin/PluginFunction.php';
+                get_data_to_pages($this->smarty, $resp['id']);            
+            }
             $this->smarty->setTemplateDir("./Views/Pages/");
             $this->smarty->assign("page", $resp);
             $this->smarty->assign("menu", $menu);
@@ -58,6 +63,12 @@ class Pages {
         if(!$resp){
             $this->error();
         }else{
+           
+            global $PLUGINS; 
+            if(isset($PLUGINS['CommentPlugin']) && $resp['commentactive'] && isset($_SESSION['userdata'])){
+                require_once $_SERVER['DOCUMENT_ROOT'].'/ri.plugins/CommentPlugin/PluginFunction.php';
+                get_data_to_pages($this->smarty, $id);   
+            }
             $this->smarty->setTemplateDir("./Views/Pages/");
             $this->smarty->assign("page", $resp);
             $this->smarty->assign("menu", $menu);
