@@ -37,7 +37,7 @@ class Controller{
         }
     }
     public function isPageEditor(){
-        if(!isset($_SESSION['userdata']['role']['Edytor strom']) &&
+        if(!isset($_SESSION['userdata']['role']['Edytor stron']) &&
                 !isset($_SESSION['userdata']['role']['_superadministrator'])&&
                  !isset($_SESSION['userdata']['role']['_administrator'])){
             header("Location:".$_SERVER['DOCUMENT_ROOT']);

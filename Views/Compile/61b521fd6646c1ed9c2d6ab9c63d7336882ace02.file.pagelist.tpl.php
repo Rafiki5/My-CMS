@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.16, created on 2014-05-15 15:51:52
+<?php /* Smarty version Smarty-3.1.16, created on 2014-05-17 11:58:01
          compiled from ".\Views\Pages\pagelist.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4583531dbe005f8a86-66050202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b521fd6646c1ed9c2d6ab9c63d7336882ace02' => 
     array (
       0 => '.\\Views\\Pages\\pagelist.tpl',
-      1 => 1400161908,
+      1 => 1400320653,
       2 => 'file',
     ),
   ),
@@ -67,8 +67,8 @@ $_smarty_tpl->tpl_vars['page']->_loop = true;
         </label>
         </td><td>
         <label id="check">
-            <input <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['id']==1) {?>disabled <?php }?> <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['pactive']) {?>checked<?php }?> type="checkbox" name="activepage"/>Dostępność strony<br>
-            <input <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['mactive']) {?> checked <?php }?>type="checkbox" name="activemenu"/>Widoczność strony w menu<br>
+            <input <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['id']==1) {?>disabled <?php }?> <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['pactive']) {?> checked <?php }?> type="checkbox" name="activepage"/>Dostępność strony<br>
+            <input <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['id']==1) {?>disabled <?php }?> <?php if ($_smarty_tpl->tpl_vars['content']->value&&$_smarty_tpl->tpl_vars['content']->value['mactive']) {?> checked <?php }?> type="checkbox" name="activemenu"/>Widoczność strony w menu<br>
         </label>
         </td></tr><tr><td colspan="2">
         <label>Treść strony<br>

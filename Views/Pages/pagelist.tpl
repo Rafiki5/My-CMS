@@ -29,8 +29,8 @@
         </label>
         </td><td>
         <label id="check">
-            <input {if $content and $content.id eq 1}disabled {/if} {if $content and $content.pactive}checked{/if} type="checkbox" name="activepage"/>Dostępność strony<br>
-            <input {if $content and $content.mactive} checked {/if}type="checkbox" name="activemenu"/>Widoczność strony w menu<br>
+            <input {if $content and $content.id eq 1}disabled {/if} {if $content and $content.pactive} checked {/if} type="checkbox" name="activepage"/>Dostępność strony<br>
+            <input {if $content and $content.id eq 1}disabled {/if} {if $content and $content.mactive} checked {/if} type="checkbox" name="activemenu"/>Widoczność strony w menu<br>
         </label>
         </td></tr><tr><td colspan="2">
         <label>Treść strony<br>

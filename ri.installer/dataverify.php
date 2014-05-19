@@ -83,7 +83,7 @@ $errors='';
         mysql_query($query);
         mysql_query("insert into groups (name) value ('_superadministrator')");
         mysql_query("insert into groups (name) value ('_administrator')");
-        mysql_query("insert into groups (name) value ('Edytor strom')");
+        mysql_query("insert into groups (name) value ('Edytor stron')");
         mysql_query("insert into groups (name) value ('Gość')");
         
         $query = "create table menu (
@@ -93,7 +93,7 @@ $errors='';
        pages_id int(11) not null,
        primary key(id));";
         mysql_query($query);
-        mysql_query("insert into menu (`path`, `pages_id`) value ('Strona domowa', 1)");
+        mysql_query("insert into menu (`path`,`active`, `pages_id`) value ('Strona domowa',1, 1)");
         echo mysql_error();
 //---------------------------------------------------------
         header("Location: step3.php");

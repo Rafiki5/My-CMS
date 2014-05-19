@@ -1,7 +1,7 @@
 <?php
 
 function isLogin(){
-    if (isset($_SESSION['userdata'])){
+    if (isset($_SESSION['userdata']['role']['_superadministrator'])){
         $menu="
         <ul id='right-menu'>
         <li><a href='/'>Strona Główna</a></li>
@@ -11,7 +11,25 @@ function isLogin(){
         <li><a href='/ri.class/Scripts/Login.php?action=logout'>Wyloguj</a></li>
         </ul>";
         echo $menu;            
-    }else{
+    }else if(isset($_SESSION['userdata']['role']['_administrator'])){
+        $menu="
+        <ul id='right-menu'>
+        <li><a href='/'>Strona Główna</a></li>
+        <li><a href='/pages/pageslist'>Strony</a></li>
+        <li><a href='/plugins/pluginslist'>Wtyczki</a></li>
+        <li><a href='/ri.class/Scripts/Login.php?action=logout'>Wyloguj</a></li>
+        </ul>";
+        echo $menu;    
+        
+        }else if(isset ($_SESSION['userdata']['role']['Edytor stron'])){
+            $menu="
+        <ul id='right-menu'>
+        <li><a href='/'>Strona Główna</a></li>
+        <li><a href='/pages/pageslist'>Strony</a></li>
+        <li><a href='/ri.class/Scripts/Login.php?action=logout'>Wyloguj</a></li>
+        </ul>";
+        echo $menu; 
+        }else{
         $menu="
         <ul id='right-menu'>
         <li><a href='/'>Strona Główna</a></li>
